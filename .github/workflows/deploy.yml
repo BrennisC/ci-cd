@@ -1,7 +1,9 @@
 name: Deploy to server
 
 on:
-  - push
+  push:
+    branches:
+      - main
 
 jobs:
   set-up:
@@ -12,6 +14,7 @@ jobs:
         run: echo "hola mundo"
 
   deploy:
+    if: false
     needs: set-up
     runs-on: ubuntu-latest
 
