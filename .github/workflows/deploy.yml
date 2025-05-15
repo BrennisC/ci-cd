@@ -10,7 +10,9 @@ jobs:
     steps:
       - name: Hola mundo
         run: echo "hola mundo"
+
   deploy:
+    needs: set-up
     runs-on: ubuntu-latest
 
     steps:
