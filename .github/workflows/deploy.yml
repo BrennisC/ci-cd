@@ -11,13 +11,4 @@ jobs:
 
     steps:
       - name: Hola mundo
-        run: echo "hola mundo"
-
-  deploy:
-    if: false
-    needs: set-up
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: test
-        run: echo "${{ secrets.NAME}}"
+        run: ls -al
