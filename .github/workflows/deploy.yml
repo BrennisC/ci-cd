@@ -1,22 +1,20 @@
-name: Deploy to server
+name: Prueba simple de PHP
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  set-up:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
+      - name: Clonar el repositorio
         uses: actions/checkout@v2
+      - name: Ver version de PHP
+        run: php -v
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: set-up
-
-    steps:
-      - name: Hola mundo
-        run: echo "${{ secrets.NAME}}"
+      - name: Iniciar servidor PHP
+        run: |
+          php -S localhost:8000 > /dev/null 2>&1 & 
+          sleep 3
+          curl http://localhost:8000
